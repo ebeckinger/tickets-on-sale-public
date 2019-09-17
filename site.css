@@ -76,9 +76,13 @@ a:hover, a:focus {
 .custom-header {
     margin: 2em auto 15px;
     height: 100px;
-    position: initial;
+    position: INITIAL;
     margin-bottom: 15px;
     padding: 20px 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
 }
 ul.disclaimer {
     position: absolute;
@@ -95,4 +99,19 @@ ul.disclaimer {
 }
 ul.disclaimer li{
 	margin-right: 1em;
+}
+.span17 {
+    margin-left: 0 !important;
+    margin-right: 1.5em;
+}
+p.mobile-disclaimer {
+    position: absolute;
+    display: none;
+}
+.row-fluid {
+    display: flex;
+    flex-direction: row-reverse;
+}
+div#order-summary {
+    flex-direction: column;
 }
