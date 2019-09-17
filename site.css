@@ -26,7 +26,7 @@ input#checkoutSubmit {
     user-select: none;
     text-indent: 0px;
     text-shadow: none;
-    font: 400 13.3333px Arial;
+    font: 600 13.3333px Arial;
     text-align: center;
     vertical-align: middle;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -37,4 +37,62 @@ a {
 }
 a:hover, a:focus {
 	color: #006498;
+}
+
+.form-horizontal {
+    display: flex;
+    flex-direction: column;
+}
+.paymentTypeToggle.clearfix.control-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.form-horizontal .controls {
+    margin-left: 0em;
+}
+.form-horizontal .control-label {
+    padding-top: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: .85em;
+    width: auto;
+    float: none;
+    width: 160px;
+    padding-top: 0;
+    text-align: left;
+    display: block;
+}
+.controls.agree-terms {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+.controls.agree-terms {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+.custom-header {
+    margin: 2em auto 15px;
+    height: 100px;
+    position: initial;
+    margin-bottom: 15px;
+    padding: 20px 0;
+}
+ul.disclaimer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #f3f6f7;
+    color: #506b72;
+    text-align: center;
+    padding: 0.25em;
+    font-size: 0.875em;
+    display: flex;
+    justify-content: center;
+}
+ul.disclaimer li{
+	margin-right: 1em;
 }
