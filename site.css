@@ -136,6 +136,10 @@ html {
    		color: #00191f;
 }
 @media only screen and (max-width: 1024px) {
+	.paymentTypeToggle.clearfix.control-group .controls {
+	    align-items: flex-start !important;
+	    margin-left: 1em;
+	}	
 	.custom-header {
 	    justify-content: center;
 	    align-items: center;
