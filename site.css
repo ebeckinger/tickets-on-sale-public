@@ -76,13 +76,16 @@ a:hover, a:focus {
 .custom-header {
     margin: 2em auto 15px;
     height: 100px;
-    position: INITIAL;
-    margin-bottom: 15px;
+    position: initial;
+    margin-bottom: 0;
     padding: 20px 0;
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: space-between;
+}
+.customer-header img {
+	display: none !important;
 }
 ul.disclaimer {
     position: absolute;
@@ -104,6 +107,12 @@ ul.disclaimer li{
     margin-left: 0 !important;
     margin-right: 1.5em;
 }
+.custom-header aside {
+    margin-top: auto;
+}
+a.hidden.fa.fa-phone {
+    display: none;
+}
 p.mobile-disclaimer {
     position: absolute;
     display: none;
@@ -120,7 +129,12 @@ html {
 .custom-header aside span{
     margin-right: 0.5em;
 }
-
+.custom-header h1 {
+		display: block !important;
+   		text-transform: uppercase;
+   		font-family: 'Oswald', sans-serif;
+   		color: #00191f;
+}
 @media only screen and (max-width: 1024px) {
 	.custom-header {
 	    justify-content: center;
@@ -178,11 +192,5 @@ html {
 	ul.disclaimer li {
 	    margin-right: 0.5em;
 	    margin-left: 0.5em;
-	}
-	.custom-header h1 {
-		display: block !important;
-   		text-transform: uppercase;
-   		font-family: 'Oswald', sans-serif;
-   		color: #00191f;
 	}
 }
