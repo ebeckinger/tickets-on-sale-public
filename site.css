@@ -84,7 +84,7 @@ a:hover, a:focus {
     flex-direction: column;
     justify-content: space-between;
 }
-.customer-header img {
+.custom-header img {
 	display: none !important;
 }
 ul.disclaimer {
