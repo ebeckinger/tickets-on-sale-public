@@ -198,3 +198,14 @@ html {
 	    margin-left: 0.5em;
 	}
 }
+.cc-container:before {
+    top: 28px !important;
+    right: 4px;
+}
+div#card-number {
+    width: 100% !important;
+}
+
+#checkoutForm .row-fluid {
+    flex-direction: row !important;
+}
