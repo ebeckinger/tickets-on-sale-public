@@ -1,0 +1,71 @@
+﻿.flash-timer-modal {
+    display: none;
+    position: fixed;
+    bottom: 4em;
+    background: #ff3144;
+    right: 4em;
+    padding: 0.5em 1em 1em 1em;
+    color: #ffd984;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 999;
+    text-align: center;
+}
+
+div#flash-countdown {
+    padding: 0.5em;
+    color: black;
+    display: flex;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    background: white
+}
+
+@media screen and (min-width: 1025px) {
+    div#flash-timer-modal-mobile {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .flash-timer-modal {
+        display: none !important;
+    }
+
+    div#flash-timer-modal-mobile {
+        display: none;
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        padding: 0.25em 0.5em 0.5em 0.5em;
+        z-index: 2;
+        color: #ffd984;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        background: #ff3144;
+    }
+
+    .main-mobile-flash-timer {
+        display: block !important;
+        position: fixed;
+        bottom: 1em;
+        background: #ff3144;
+        right: 1em;
+        padding: 0.25em;
+        color: #ffd984;
+        font-weight: bold;
+        text-transform: uppercase;
+        z-index: 3;
+        text-align: center;
+    }
+
+    div#flash-countdown {
+        padding: 0.25em;
+        font-size: 0.7em;
+        z-index: 2;
+        background: white
+    }
+}
