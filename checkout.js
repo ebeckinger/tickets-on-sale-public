@@ -1,6 +1,6 @@
 ﻿var timerHtml = '<div class="flash-timer-modal"><div>FLASH SALE</div><div id="flash-countdown">Time Left : <div id="flash-timer" class="ml-1"></div></div></div>';
 
-$j(document).ready(function () {
+$(document).ready(function () {
 
     //Inject modal
     //
