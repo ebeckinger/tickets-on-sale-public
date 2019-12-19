@@ -19,16 +19,16 @@ $(document).ready(function () {
 
         console.log('flashSaleCreatedTime: ' + flashSaleCreatedTime);
 
-        if (flashSaleCreatedTime) {
+        if (flashSaleCreatedTime != null) {
 
             var diffMs = (currentDate - flashSaleCreatedTime);
             var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000);
 
             console.log('diffMins: ' + diffMins);
 
-            if (diffMins > 0) {
+            if (diffMins >= 0) {
 
-                var flashSaleRemaining = diffMins - 15;
+                var flashSaleRemaining = 15 - diffMins;
                 var countDownDate = new Date().getTime() + flashSaleRemaining * 60 * 1000;
                 startFlashTimer(countDownDate);
             }
