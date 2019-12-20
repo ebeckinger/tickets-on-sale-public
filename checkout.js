@@ -13,9 +13,9 @@ $(document).ready(function () {
         console.log('flashSaleCookie detected!');
 
         //var flashSaleCookieParsed = JSON.parse(flashSaleCookie);
-        var currentDate = Date().getTime();
+        var currentDate = new Date().getTime();
         //var flashSaleCreatedTime = Date.parse(flashSaleCookieParsed.FlashSaleTotalMinutes);
-		var flashSaleCreatedTime = Date().getTime();
+		var flashSaleCreatedTime = new Date().getTime();
 
         console.log('flashSaleCreatedTime: ' + flashSaleCreatedTime);
 
