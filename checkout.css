@@ -10,7 +10,7 @@
     text-transform: uppercase;
     z-index: 999;
     text-align: center;
-	font-size: 1.4em;
+	font-size: 1.8em;
 }
 
 div#flash-countdown {
@@ -19,7 +19,6 @@ div#flash-countdown {
     display: flex;
     text-align: center;
     font-weight: bold;
-    font-size: 2.0em;
     background: white
 }
 
