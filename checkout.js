@@ -1,10 +1,18 @@
 ﻿var timerHtml = '<div class="flash-timer-modal"><div>FLASH SALE</div><div id="flash-countdown">Time Left : <div id="flash-timer" class="ml-1"></div></div></div>';
+var mobileTimerHtml = '<div class="timer-sec timer-sticky visible-xs"><h1 class="timer" data-minutes-left="10">remaining to checkout  <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal"><i class="fa fa-info" aria-hidden="true"></i></a><div class="jst-hours">00:</div><div class="jst-minutes">15:</div><div class="jst-seconds">00</div><div class="jst-clearDiv"></div></h1></div>';
 
 $(document).ready(function () {
 
     //Inject modal
     //
     $('head').after(timerHtml);
+	
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    	$('#checkoutTab1').after(mobileTimerHtml);
+		$('#checkoutTab2').after(mobileTimerHtml);
+		$('#checkoutTab3').after(mobileTimerHtml);
+		$('#checkoutTab4').after(mobileTimerHtml);
+	}
 
     var flashSaleCookie = getCookie('tickets-on-sale-fs');
 	
@@ -54,26 +62,17 @@ function getCookie(cname) {
 }
 
 function startFlashTimer(countDownDate) {
-    document.getElementById("flash-timer").innerHTML = "14:59";
-    if ($('#flash-timer-modal-mobile').length > 0) {
-        document.getElementById("flash-timer-mobile").innerHTML = "14:59";
+	
+    if ($('#flash-timer').length > 0) {
+        document.getElementById("flash-timer").innerHTML = "14:59";
     }
-    //document.getElementById("flash-countdown").innerHTML = "15:00";
+	
     var x = setInterval(function () {
-        // Check if event map exists...
-        if ($('.event-name-map.clearfix').length > 0) {
-            if ($('#flash-timer-modal-mobile').length < 1) {
-                //add flash timer to map object
-                $flashMobileTimer = $('<div id="flash-timer-modal-mobile"><div>FLASH SALE</div><div id="flash-countdown">Time Left : <div id="flash-timer-mobile" class="ml-1"></div></div></div >');
-                $flashMobileTimer.appendTo($('.event-name-map.clearfix')[0]);
-            }
-        }
-        //Check if we're not on ticket page by searching for #ticket-display
-        if ($('#ticket-display').length < 1) {
-            //We're not on the ticket page!!!
-            document.getElementsByClassName("flash-timer-modal")[0].classList.add('main-mobile-flash-timer');
-        }
 
+		if ($('.flash-timer-modal').length > 0) {
+			document.getElementsByClassName("flash-timer-modal")[0].classList.add('main-mobile-flash-timer');
+		}
+	
         // Get today's date and time
         var now = new Date().getTime();
 
@@ -89,21 +88,36 @@ function startFlashTimer(countDownDate) {
         if (seconds < 10) {
             seconds = "0" + seconds;
         }
-        // Display the result in the element with id="demo"
-        document.getElementById("flash-timer").innerHTML = minutes + ":" + seconds;
-        document.getElementsByClassName("flash-timer-modal")[0].style.display = "block";
-        if ($('#flash-timer-modal-mobile').length > 0) {
-            document.getElementById("flash-timer-mobile").innerHTML = minutes + ":" + seconds;
-            document.getElementById("flash-timer-modal-mobile").style.display = "block";
-        }
+		
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+			
+			$(".jst-minutes").html(minutes + ":");
+			$(".jst-seconds").html(seconds);
 
-        // If the count down is finished, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("flash-timer").innerHTML = "00:00";
-            if ($('#flash-timer-modal-mobile').length > 0) {
-                document.getElementById("flash-timer-mobile").innerHTML = "00:00";
-            }
-        }
+			if (distance < 0) {
+				clearInterval(x);
+				$(".jst-minutes").html("00:");
+				$(".jst-seconds").html("00");
+			}
+		}	
+		else{
+			// Display the result in the element with id="demo"
+			document.getElementById("flash-timer").innerHTML = minutes + ":" + seconds;
+			document.getElementsByClassName("flash-timer-modal")[0].style.display = "block";
+			if ($('#flash-timer-modal-mobile').length > 0) {
+				document.getElementById("flash-timer-mobile").innerHTML = minutes + ":" + seconds;
+				document.getElementById("flash-timer-modal-mobile").style.display = "block";
+			}
+
+			// If the count down is finished, write some text
+			if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("flash-timer").innerHTML = "00:00";
+				if ($('#flash-timer-modal-mobile').length > 0) {
+					document.getElementById("flash-timer-mobile").innerHTML = "00:00";
+				}
+			}
+		}
+		
     }, 1000);
 }
