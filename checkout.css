@@ -111,7 +111,9 @@ div#flash-countdown {
 		background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
 		background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
 		text-align: center;
-		h1.timer {
+	}
+	
+	h1 .timer {
 			margin: 0;
 			color: #fff;
 			font-size: 15px;
@@ -120,17 +122,17 @@ div#flash-countdown {
 			font-weight: 400;
 			padding: 15px;
 			display: inline-block;
-			a {
-				display: inline-block;
-				color: #fff;
-				font-size: 10px;
-				border: 1.3px solid #fff;
-				width: 20px;
-				height: 19px;
-				border-radius: 50%;
-				line-height: 17px;
-				margin-left: 6px;
-			}
-		}
+	}
+
+	h1 .timer .a {
+		display: inline-block;
+		color: #fff;
+		font-size: 10px;
+		border: 1.3px solid #fff;
+		width: 20px;
+		height: 19px;
+		border-radius: 50%;
+		line-height: 17px;
+		margin-left: 6px;
 	}
 }
