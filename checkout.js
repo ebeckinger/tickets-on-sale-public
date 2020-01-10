@@ -3,15 +3,14 @@ var mobileTimerHtml = '<div class="timer-sec timer-sticky visible-xs"><h1 class=
 
 $(document).ready(function () {
 
-    //Inject modal
-    //
-    $('head').after(timerHtml);
-	
 	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    	$('#checkoutTab1').after(mobileTimerHtml);
-		$('#checkoutTab2').after(mobileTimerHtml);
-		$('#checkoutTab3').after(mobileTimerHtml);
-		$('#checkoutTab4').after(mobileTimerHtml);
+    	$('#checkoutTab1').prepend(mobileTimerHtml);
+		$('#checkoutTab2').prepend(mobileTimerHtml);
+		$('#checkoutTab3').prepend(mobileTimerHtml);
+		$('#checkoutTab4').prepend(mobileTimerHtml);
+	}
+	else{
+		$('head').after(timerHtml);
 	}
 
     var flashSaleCookie = getCookie('tickets-on-sale-fs');
