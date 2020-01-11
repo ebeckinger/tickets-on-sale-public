@@ -113,18 +113,18 @@ div#flash-countdown {
 		text-align: center;
 	}
 	
-	h1 .timer {
-			margin: 0;
-			color: #fff;
-			font-size: 15px;
-			text-align: center;
-			text-transform: capitalize;
-			font-weight: 400;
-			padding: 15px;
-			display: inline-block;
+	.timer {
+		margin: 0;
+		color: #fff;
+		font-size: 15px;
+		text-align: center;
+		text-transform: capitalize;
+		font-weight: 400;
+		padding: 15px;
+		display: inline-block;
 	}
 
-	h1 .timer .a {
+	.timer a {
 		display: inline-block;
 		color: #fff;
 		font-size: 10px;
