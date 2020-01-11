@@ -108,12 +108,12 @@ div#flash-countdown {
 
 	.timer-sec {
 		background: #0F2027;
-		background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
-		background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+		background: -webkit-linear-gradient(to right,#2C5364,#203A43,#0F2027);
+		background: linear-gradient(to right,#2C5364,#203A43,#0F2027);
 		text-align: center;
 	}
 	
-	.timer {
+	.timer-sec h1.timer {
 		margin: 0;
 		color: #fff;
 		font-size: 15px;
@@ -123,8 +123,8 @@ div#flash-countdown {
 		padding: 15px;
 		display: inline-block;
 	}
-
-	.timer a {
+	
+	.timer-sec h1.timer a {
 		display: inline-block;
 		color: #fff;
 		font-size: 10px;
@@ -134,5 +134,87 @@ div#flash-countdown {
 		border-radius: 50%;
 		line-height: 17px;
 		margin-left: 6px;
+	}
+		
+	.info-sec .modal-dialog {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+	.info-sec .modal-content {
+		width: 100%;
+	}
+	.info-sec h4 {
+		color: #111;
+		margin: 0 0 15px;
+		font-family: 'Oswald',sans-serif;
+		text-transform: uppercase;
+	}
+	.info-sec p {
+		color: #333;
+		font-weight: 400;
+		line-height: 25px;
+	}
+	.info-sec .modal-footer {
+		border: none;
+		padding: 0 15px 22px;
+	}
+	
+	div#timermodel .modal-dialog {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+	div#timermodel .modal-content {
+		width: 100%;
+		background: #0F2027;
+		background: -webkit-linear-gradient(to right,#2C5364,#203A43,#0F2027);
+		background: linear-gradient(to right,#2C5364,#203A43,#0F2027);
+		border: none;
+		text-align: center;
+	}
+	div#timermodel .modal-body {
+		padding: 0;
+	}
+	div#timermodel i.fa.fa-hourglass-o {
+		font-size: 56px;
+		color: rgbaq(255,255,255,0.38);
+		margin: 25px 0 0;
+	}
+	div#timermodel h3 {
+		margin: 17px 0 0;
+		font-size: 13px;
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+	}
+	div#timermodel h2 {
+		color: #fff;
+		font-size: 23px;
+		font-weight: 500;
+		font-family: 'Oswald',sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin: 17px 0 0;
+	}
+	div#timermodel p {
+		color: #fff;
+		font-weight: 300;
+		margin: 15px 0;
+		padding: 0 15px;
+	}
+	div#timermodel a {
+		display: table;
+		width: 100%;
+		background: #1abc9c;
+		color: #fff;
+		padding: 14px;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 13px;
+		letter-spacing: 0.5px;
+		margin: 44px 0 0;
 	}
 }
