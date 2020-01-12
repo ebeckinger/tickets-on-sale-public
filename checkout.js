@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 		
-		$('head').after(modalHtml);
+		$('body').after(modalHtml);
 		
     	$('#checkoutTab1').prepend(mobileTimerHtml);
 		$('#checkoutTab2').prepend(mobileTimerHtml);
