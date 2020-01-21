@@ -19,14 +19,13 @@ $(document).ready(function () {
 
     var flashSaleCookie = getCookie('tickets-on-sale-fs');
 	
-    //if (flashSaleCookie != "") {
+    if (flashSaleCookie != "") {
 
         console.log('flashSaleCookie detected!');
 
-        //var flashSaleCookieParsed = JSON.parse(flashSaleCookie);
+        var flashSaleCookieParsed = JSON.parse(flashSaleCookie);
         var currentDate = new Date().getTime();
-        //var flashSaleCreatedTime = Date.parse(flashSaleCookieParsed.FlashSaleTotalMinutes);
-		var flashSaleCreatedTime = new Date().getTime();
+        var flashSaleCreatedTime = Date.parse(flashSaleCookieParsed.FlashSaleTotalMinutes);
 
         console.log('flashSaleCreatedTime: ' + flashSaleCreatedTime);
 
@@ -44,7 +43,7 @@ $(document).ready(function () {
                 startFlashTimer(countDownDate);
             }
         }
-    //}
+    }
 });
 
 function getCookie(cname) {
