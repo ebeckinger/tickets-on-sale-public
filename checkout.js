@@ -1,5 +1,5 @@
 ﻿var timerHtml = '<div class="flash-timer-modal"><div>FLASH SALE</div><div id="flash-countdown">Time Left : <div id="flash-timer" class="ml-1"></div></div></div>';
-var mobileTimerHtml = '<div class="timer-sec timer-sticky visible-xs"><h1 class="timer" data-minutes-left="10">remaining to checkout  <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal"><i class="fa fa-info" aria-hidden="true"></i></a><div class="jst-hours">00:</div><div class="jst-minutes">15:</div><div class="jst-seconds">00</div><div class="jst-clearDiv"></div></h1></div>';
+var mobileTimerHtml = '<div class="timer-sec timer-sticky visible-xs"><h1 class="timer" data-minutes-left="10">remaining to checkout  <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal"><i class="fa fa-info" aria-hidden="true"></i></a><div class="jst-hours">00:</div><div class="jst-minutes">10:</div><div class="jst-seconds">00</div><div class="jst-clearDiv"></div></h1></div>';
 var modalHtml = '<div class="modal fade info-sec" id="myModal" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><h4>Why am I being timed?</h4><p>TicketsOnSale.com is a live marketplace and tickets can sell quickly. Your tickets are not held but we advise you to check out quickly to get your preferred tickets.</p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal"> OK, GOT IT</button></div></div></div></div>';
 
 $(document).ready(function () {
@@ -21,7 +21,7 @@ $(document).ready(function () {
             var diffMs = (currentDate - flashSaleCreatedTime);
             var diffSecs = Math.round(((diffMs % 86400000) % 3600000) / 1000);
 
-            if (diffSecs >= 0 && diffSecs < 900) {
+            if (diffSecs >= 0 && diffSecs < 600) {
 				
 				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 					
@@ -36,7 +36,7 @@ $(document).ready(function () {
 					$('head').after(timerHtml);
 				}
 				
-                var flashSaleRemaining = 900 - diffSecs;
+                var flashSaleRemaining = 600 - diffSecs;
                 var countDownDate = new Date().getTime() + flashSaleRemaining * 1000;
                 startFlashTimer(countDownDate);
             }
@@ -63,7 +63,7 @@ function getCookie(cname) {
 function startFlashTimer(countDownDate) {
 	
     if ($('#flash-timer').length > 0) {
-        document.getElementById("flash-timer").innerHTML = "14:59";
+        document.getElementById("flash-timer").innerHTML = "09:59";
     }
 	
     var x = setInterval(function () {
