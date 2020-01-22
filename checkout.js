@@ -4,42 +4,40 @@ var modalHtml = '<div class="modal fade info-sec" id="myModal" role="dialog"><di
 
 $(document).ready(function () {
 
-	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-		
-		$('body').after(modalHtml);
-		
-    	$('#checkoutTab1').prepend(mobileTimerHtml);
-		$('#checkoutTab2').prepend(mobileTimerHtml);
-		$('#checkoutTab3').prepend(mobileTimerHtml);
-		$('#checkoutTab4').prepend(mobileTimerHtml);
-	}
-	else{
-		$('head').after(timerHtml);
-	}
-
     var flashSaleCookie = getCookie('tickets-on-sale-fs');
-	
+
     if (flashSaleCookie != "") {
 
-        console.log('flashSaleCookie detected!');
+        console.log('flash sale detected!');
 
         var flashSaleCookieParsed = JSON.parse(flashSaleCookie);
         var currentDate = new Date().getTime();
-        var flashSaleCreatedTime = Date.parse(flashSaleCookieParsed.FlashSaleTotalMinutes);
+        var flashSaleCreatedTime = Date.parse(flashSaleCookieParsed.FlashSaleStartTimeUtc);
 
         console.log('flashSaleCreatedTime: ' + flashSaleCreatedTime);
 
         if (flashSaleCreatedTime != null) {
 
             var diffMs = (currentDate - flashSaleCreatedTime);
-            var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000);
+            var diffSecs = Math.round(((diffMs % 86400000) % 3600000) / 1000);
 
-            console.log('diffMins: ' + diffMins);
-
-            if (diffMins >= 0) {
-
-                var flashSaleRemaining = 15 - diffMins;
-                var countDownDate = new Date().getTime() + flashSaleRemaining * 60 * 1000;
+            if (diffSecs >= 0 && diffSecs < 900) {
+				
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+					
+					$('body').after(modalHtml);
+					
+					$('#checkoutTab1').prepend(mobileTimerHtml);
+					$('#checkoutTab2').prepend(mobileTimerHtml);
+					$('#checkoutTab3').prepend(mobileTimerHtml);
+					$('#checkoutTab4').prepend(mobileTimerHtml);
+				}
+				else{
+					$('head').after(timerHtml);
+				}
+				
+                var flashSaleRemaining = 900 - diffSecs;
+                var countDownDate = new Date().getTime() + flashSaleRemaining * 1000;
                 startFlashTimer(countDownDate);
             }
         }
