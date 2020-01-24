@@ -3,62 +3,25 @@ var mobileTimerHtml = '<div class="timer-sec timer-sticky visible-xs"><h1 class=
 var modalHtml = '<div class="modal fade info-sec" id="myModal" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><h4>Why am I being timed?</h4><p>TicketsOnSale.com is a live marketplace and tickets can sell quickly. Your tickets are not held but we advise you to check out quickly to get your preferred tickets.</p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal"> OK, GOT IT</button></div></div></div></div>';
 
 $(document).ready(function () {
-
-    var flashSaleCookie = getCookie('tickets-on-sale-fs');
-
-    if (flashSaleCookie != "") {
-
-        console.log('flash sale detected!');
-
-        var flashSaleCookieParsed = JSON.parse(flashSaleCookie);
-        var currentDate = new Date().getTime();
-        var flashSaleCreatedTime = Date.parse(flashSaleCookieParsed.FlashSaleStartTimeUtc);
-
-        console.log('flashSaleCreatedTime: ' + flashSaleCreatedTime);
-
-        if (flashSaleCreatedTime != null) {
-
-            var diffMs = (currentDate - flashSaleCreatedTime);
-            var diffSecs = Math.round(((diffMs % 86400000) % 3600000) / 1000);
-
-            if (diffSecs >= 0 && diffSecs < 600) {
-				
-				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-					
-					$('body').after(modalHtml);
-					
-					$('#checkoutTab1').prepend(mobileTimerHtml);
-					$('#checkoutTab2').prepend(mobileTimerHtml);
-					$('#checkoutTab3').prepend(mobileTimerHtml);
-					$('#checkoutTab4').prepend(mobileTimerHtml);
-				}
-				else{
-					$('head').after(timerHtml);
-				}
-				
-                var flashSaleRemaining = 600 - diffSecs;
-                var countDownDate = new Date().getTime() + flashSaleRemaining * 1000;
-                startFlashTimer(countDownDate);
-            }
-        }
-    }
+	
+	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+		
+		$('body').after(modalHtml);
+		
+		$('#checkoutTab1').prepend(mobileTimerHtml);
+		$('#checkoutTab2').prepend(mobileTimerHtml);
+		$('#checkoutTab3').prepend(mobileTimerHtml);
+		$('#checkoutTab4').prepend(mobileTimerHtml);
+	}
+	else{
+		//$('head').after(timerHtml);
+	}
+	
+	var flashSaleRemaining = 600;
+	var countDownDate = new Date().getTime() + flashSaleRemaining * 1000;
+	startFlashTimer(countDownDate);	
+	
 });
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
 
 function startFlashTimer(countDownDate) {
 	
@@ -100,6 +63,7 @@ function startFlashTimer(countDownDate) {
 			}
 		}	
 		else{
+			/*
 			// Display the result in the element with id="demo"
 			document.getElementById("flash-timer").innerHTML = minutes + ":" + seconds;
 			document.getElementsByClassName("flash-timer-modal")[0].style.display = "block";
@@ -115,7 +79,7 @@ function startFlashTimer(countDownDate) {
 				if ($('#flash-timer-modal-mobile').length > 0) {
 					document.getElementById("flash-timer-mobile").innerHTML = "00:00";
 				}
-			}
+			}*/
 		}
 		
     }, 1000);
