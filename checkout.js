@@ -3,38 +3,38 @@ var mobileTimerHtml = '<div class="timer-sec timer-sticky visible-xs"><h1 class=
 var modalHtml = '<div class="modal fade info-sec" id="myModal" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><h4>Why am I being timed?</h4><p>TicketsOnSale.com is a live marketplace and tickets can sell quickly. Your tickets are not held but we advise you to check out quickly to get your preferred tickets.</p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal"> OK, GOT IT</button></div></div></div></div>';
 
 $(document).ready(function () {
-	
-	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-		
-		$('body').after(modalHtml);
-		
-		$('#checkoutTab1').prepend(mobileTimerHtml);
-		$('#checkoutTab2').prepend(mobileTimerHtml);
-		$('#checkoutTab3').prepend(mobileTimerHtml);
-		$('#checkoutTab4').prepend(mobileTimerHtml);
-	}
-	else{
-		//$('head').after(timerHtml);
-	}
-	
-	var flashSaleRemaining = 600;
-	var countDownDate = new Date().getTime() + flashSaleRemaining * 1000;
-	startFlashTimer(countDownDate);	
-	
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+        $('body').after(modalHtml);
+
+        $('#checkoutTab1').prepend(mobileTimerHtml);
+        $('#checkoutTab2').prepend(mobileTimerHtml);
+        $('#checkoutTab3').prepend(mobileTimerHtml);
+        $('#checkoutTab4').prepend(mobileTimerHtml);
+    }
+    else {
+        //$('head').after(timerHtml);
+    }
+
+    var flashSaleRemaining = 600;
+    var countDownDate = new Date().getTime() + flashSaleRemaining * 1000;
+    startFlashTimer(countDownDate);
+
 });
 
 function startFlashTimer(countDownDate) {
-	
+
     if ($('#flash-timer').length > 0) {
         document.getElementById("flash-timer").innerHTML = "09:59";
     }
-	
+
     var x = setInterval(function () {
 
-		if ($('.flash-timer-modal').length > 0) {
-			document.getElementsByClassName("flash-timer-modal")[0].classList.add('main-mobile-flash-timer');
-		}
-	
+        if ($('.flash-timer-modal').length > 0) {
+            document.getElementsByClassName("flash-timer-modal")[0].classList.add('main-mobile-flash-timer');
+        }
+
         // Get today's date and time
         var now = new Date().getTime();
 
@@ -50,19 +50,19 @@ function startFlashTimer(countDownDate) {
         if (seconds < 10) {
             seconds = "0" + seconds;
         }
-		
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-			
-			$(".jst-minutes").html(minutes + ":");
-			$(".jst-seconds").html(seconds);
 
-			if (distance < 0) {
-				clearInterval(x);
-				$(".jst-minutes").html("00:");
-				$(".jst-seconds").html("00");
-			}
-		}	
-		else{
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+            $(".jst-minutes").html(minutes + ":");
+            $(".jst-seconds").html(seconds);
+
+            if (distance < 0) {
+                clearInterval(x);
+                $(".jst-minutes").html("00:");
+                $(".jst-seconds").html("00");
+            }
+        }
+        else {
 			/*
 			// Display the result in the element with id="demo"
 			document.getElementById("flash-timer").innerHTML = minutes + ":" + seconds;
@@ -80,7 +80,7 @@ function startFlashTimer(countDownDate) {
 					document.getElementById("flash-timer-mobile").innerHTML = "00:00";
 				}
 			}*/
-		}
-		
+        }
+
     }, 1000);
 }
