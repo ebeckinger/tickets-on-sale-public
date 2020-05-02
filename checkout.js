@@ -1,12 +1,14 @@
 ﻿var timerHtml = '<div class="flash-timer-modal"><div>FLASH SALE</div><div id="flash-countdown">Time Left : <div id="flash-timer" class="ml-1"></div></div></div>';
 var mobileTimerHtml = '<div class="timer-sec timer-sticky visible-xs"><h1 class="timer" data-minutes-left="10">remaining to checkout  <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal"><i class="fa fa-info" aria-hidden="true"></i></a><div class="jst-hours">00:</div><div class="jst-minutes">10:</div><div class="jst-seconds">00</div><div class="jst-clearDiv"></div></h1></div>';
 var modalHtml = '<div class="modal fade info-sec" id="myModal" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><h4>Why am I being timed?</h4><p>TicketsOnSale.com is a live marketplace and tickets can sell quickly. Your tickets are not held but we advise you to check out quickly to get your preferred tickets.</p></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal"> OK, GOT IT</button></div></div></div></div>';
+var timesUpModal = '<div class="modal fade in" id="timermodel" role="dialog"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><i class="fa fa-hourglass-o" aria-hidden="true"></i><h3>Time\'s Up</h3><h2>Your cart expired.</h2><p>TicketsOnSale.com is a live marketplace and tickets can sell quickly. Your tickets are not held, but may still be available.</p><a href="javascript:window.location.reload();">Continue Checkout</a></div></div></div></div>';
 
 $(document).ready(function () {
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
         $('body').after(modalHtml);
+		$('body').after(timesUpModal);
 
         $('#checkoutTab1').prepend(mobileTimerHtml);
         $('#checkoutTab2').prepend(mobileTimerHtml);
@@ -60,6 +62,7 @@ function startFlashTimer(countDownDate) {
                 clearInterval(x);
                 $(".jst-minutes").html("00:");
                 $(".jst-seconds").html("00");
+				$('#timermodel').modal('show');
             }
         }
         else {
