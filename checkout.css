@@ -24,8 +24,12 @@ div#flash-countdown {
 
 form#checkoutForm .confirmAndPlaceOrder label.control-label {
 
-  font-weight: 400 !important;
-  line-height: 0px !important;
+	font-weight: 400 !important;
+	line-height: 0px !important;
+}
+
+.confirmAndPlaceOrder .form-horizontal .controls label.checkbox {
+	font-weight: 400 !important;
 }
 
 .confirmAndPlaceOrder .form-horizontal .control-label{
