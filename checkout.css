@@ -22,17 +22,17 @@ div#flash-countdown {
     background: white
 }
 
-form#checkoutForm  label.control-label {
+form#checkoutForm .confirmAndPlaceOrder label.control-label {
 
   font-weight: 400 !important;
   line-height: 0px !important;
 }
 
-.form-horizontal .control-label{
+.confirmAndPlaceOrder .form-horizontal .control-label{
 	float: none !important;
 }
 
-form#checkoutForm .form-horizontal .controls {
+form#checkoutForm .confirmAndPlaceOrder .form-horizontal .controls {
     margin-left: 0px !important;
 }
 
